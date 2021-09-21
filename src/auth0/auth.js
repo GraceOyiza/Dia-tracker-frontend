@@ -7,7 +7,6 @@ export default function Auth(historyValue) {
     domain: process.env.REACT_APP_AUTH0_DOMAIN,
     clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
     redirectUri: process.env.REACT_APP_AUTH0_CALLBACK_URL,
-
     responseType: 'token id_token',
     scope: 'openid profile email',
   });
@@ -27,7 +26,7 @@ export default function Auth(historyValue) {
     auth.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         setSession(authResult);
-        history.push('/');
+        // history.push('/');
       } else if (err) {
         console.log(err);
         history.push('/error');
